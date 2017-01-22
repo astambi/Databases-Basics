@@ -1,0 +1,3 @@
+TRUNCATE TABLE Minions
+-- or
+DELETE FROM Minions

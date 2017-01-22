@@ -37,9 +37,9 @@ CREATE TABLE Movies (
 	CONSTRAINT FK_Movies_Directors FOREIGN KEY (DirectorId) REFERENCES Directors (Id),
 	CONSTRAINT FK_Movies_Genres FOREIGN KEY (GenreId) REFERENCES Genres (Id),
 	CONSTRAINT FK_Movies_Categories FOREIGN KEY (CategoryId) REFERENCES Categories (Id),
-	CONSTRAINT CK_CopyrightYear CHECK (CopyrightYear >= 1900 AND CopyrightYear < 3000),
-	CONSTRAINT CK_Rating CHECK (Rating > 0 AND Rating <= 10),
-	CONSTRAINT CK_Length CHECK (Length > 0)	
+	CONSTRAINT CK_Movies_CopyrightYear CHECK (CopyrightYear >= 1900),
+	CONSTRAINT CK_Movies_Rating CHECK (Rating > 0 AND Rating <= 10),
+	CONSTRAINT CK_Movies_Length CHECK (Length > 0)	
 )
 
 INSERT INTO Directors (DirectorName, Notes)

@@ -1,5 +1,4 @@
-CREATE TABLE Users 
-(
+CREATE TABLE Users (
 	Id int UNIQUE IDENTITY,
 	Username varchar(30) UNIQUE NOT NULL,
 	Password varchar(26) NOT NULL,
