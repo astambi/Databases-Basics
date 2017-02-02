@@ -1,0 +1,19 @@
+Football Database
+Design a storage for football team information. It keeps up-to-date information 
+about each team, with its players and manager. A team can participate in many 
+leagues, both local and international. Players and managers are recorded with 
+thier first and last name and their salary.
+
+Conference Rooms
+Our company has several conference rooms that are available to all staff. 
+However, sometimes people need to use one room only to find it's already 
+occupied by someone else. We need a way to keep track of usage by booking rooms 
+in advance and adding all relevant people that need to attend the meeting. 
+It'll be nice to have a list of all topics that will be covered during the 
+meeting too.
+
+Snooker Club Tournament
+Our club holds regular tournaments for our members. During these tournaments, 
+each competing player plays three matches against different opponents. These 
+matches last 90 minutes each and at the end of the match, the players write 
+down how many frames each player won, and their highest break.
