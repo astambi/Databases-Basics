@@ -14,7 +14,7 @@ SELECT TOP 5
   ISNULL(TopElevations.HighestElevation, 0) AS HighestPeakElevation,
   ISNULL((SELECT Mountain FROM PeaksMountains_CTE
           WHERE TopElevations.CountryName = CountryName AND TopElevations.HighestElevation = Elevation), 
-		 '(no mountain)') AS Mountain
+        '(no mountain)') AS Mountain
 FROM 
   (SELECT CountryName, MAX(Elevation) AS HighestElevation
    FROM PeaksMountains_CTE 
@@ -25,11 +25,11 @@ ORDER BY Country, HighestPeakName
 SELECT TOP 5
   TopElevations.CountryName AS Country,
   ISNULL((SELECT p.PeakName 
-	      FROM Peaks AS p
-	      JOIN MountainsCountries as mc ON mc.MountainId = p.MountainId
+          FROM Peaks AS p
+          JOIN MountainsCountries as mc ON mc.MountainId = p.MountainId
           JOIN Countries AS c ON c.CountryCode = mc.CountryCode
           WHERE TopElevations.CountryName = c.CountryName AND TopElevations.HighestElevation = p.Elevation), 
-		 '(no highest peak)') AS HighestPeakName,
+        '(no highest peak)') AS HighestPeakName,
   ISNULL(TopElevations.HighestElevation, 0) AS HighestPeakElevation,
   ISNULL((SELECT m.MountainRange 
           FROM Mountains AS m
@@ -37,7 +37,7 @@ SELECT TOP 5
           JOIN Countries AS c ON c.CountryCode = mc.CountryCode
           JOIN Peaks AS p ON p.MountainId = m.Id
           WHERE TopElevations.CountryName = c.CountryName AND TopElevations.HighestElevation = p.Elevation), 
-		 '(no mountain)') AS Mountain
+        '(no mountain)') AS Mountain
 FROM 
   (SELECT c.CountryName, MAX(p.Elevation) AS HighestElevation
    FROM Countries AS c
@@ -50,12 +50,12 @@ ORDER BY Country, HighestPeakName
 SELECT TOP 5
   TopElevations.CountryName AS Country,
   ISNULL((SELECT p.PeakName 
-	      FROM Peaks AS p
-	      JOIN MountainsCountries as mc ON mc.MountainId = p.MountainId
+          FROM Peaks AS p
+          JOIN MountainsCountries as mc ON mc.MountainId = p.MountainId
           JOIN Countries AS c ON (c.CountryCode = mc.CountryCode 
-		   AND TopElevations.CountryName = c.CountryName 
-		   AND TopElevations.HighestElevation = p.Elevation)), 
-		 '(no highest peak)') AS HighestPeakName,
+           AND TopElevations.CountryName = c.CountryName 
+           AND TopElevations.HighestElevation = p.Elevation)), 
+        '(no highest peak)') AS HighestPeakName,
   ISNULL(TopElevations.HighestElevation, 0) AS HighestPeakElevation,
   ISNULL((SELECT m.MountainRange 
           FROM Mountains AS m
@@ -63,8 +63,8 @@ SELECT TOP 5
           JOIN Countries AS c ON c.CountryCode = mc.CountryCode
           JOIN Peaks AS p ON (p.MountainId = m.Id
            AND TopElevations.CountryName = c.CountryName 
-		   AND TopElevations.HighestElevation = p.Elevation)), 
-		 '(no mountain)') AS Mountain
+           AND TopElevations.HighestElevation = p.Elevation)), 
+        '(no mountain)') AS Mountain
 FROM 
   (SELECT c.CountryName, MAX(p.Elevation) AS HighestElevation
    FROM Countries AS c
