@@ -14,9 +14,9 @@ BEGIN
   IF(@itemMinLevel > @userGameLevel)
     BEGIN
       ROLLBACK;
-	  RAISERROR('Higher user game level required for item purchase', 16, 1);
-	  RETURN;
-	END
+      RAISERROR('Higher user game level required for item purchase', 16, 1);
+      RETURN;
+    END
 END
 --testing
 INSERT INTO UserGameItems (ItemId, UserGameId) VALUES (3, 2); -- itemMinLevel = 76, UserGameLevel = 30 => error

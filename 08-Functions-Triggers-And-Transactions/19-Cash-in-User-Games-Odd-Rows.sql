@@ -3,8 +3,7 @@ RETURNS table
 AS
 RETURN (
   WITH CTE_CashInRows (Cash, RowNumber) AS (
-    SELECT ug.Cash, 
-	  ROW_NUMBER() OVER (ORDER BY ug.Cash DESC) AS RowNumber
+    SELECT ug.Cash, ROW_NUMBER() OVER (ORDER BY ug.Cash DESC)
     FROM UsersGames AS ug
     JOIN Games AS g ON ug.GameId = g.Id
     WHERE g.Name = @gameName

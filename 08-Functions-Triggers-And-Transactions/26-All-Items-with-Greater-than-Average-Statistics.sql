@@ -2,7 +2,7 @@ WITH CTE_AboveAverageStats (Id) AS (
   SELECT Id FROM [Statistics]
   WHERE Mind > (SELECT AVG(Mind  * 1.0) FROM [Statistics]) AND
         Luck > (SELECT AVG(Luck  * 1.0) FROM [Statistics]) AND
-	   Speed > (SELECT AVG(Speed * 1.0) FROM [Statistics])
+       Speed > (SELECT AVG(Speed * 1.0) FROM [Statistics])
 )
 SELECT 
   i.Name, i.Price, i.MinLevel, 
