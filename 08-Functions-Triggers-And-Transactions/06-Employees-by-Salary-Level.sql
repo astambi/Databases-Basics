@@ -5,4 +5,5 @@ AS
   FROM Employees
   WHERE dbo.ufn_GetSalaryLevel(Salary) = @salaryLevel
 
---EXEC usp_EmployeesBySalaryLevel 'High';
+-- testing
+EXEC usp_EmployeesBySalaryLevel 'High';
