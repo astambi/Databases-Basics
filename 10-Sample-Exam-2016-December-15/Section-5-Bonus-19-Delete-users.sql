@@ -14,7 +14,15 @@ BEGIN
   -- delete user-chat entries in mapping table UsesChats for all users to be deleted
   DELETE FROM UsersChats
   WHERE UserId IN (SELECT Id FROM deleted)  
-
+  
+  -- delete 1-to-1 relation to user Credentials (not required in Judge)
+  UPDATE Users
+  SET CredentialId = NULL
+  WHERE Id IN (SELECT Id FROM deleted)
+  
+  DELETE FROM Credentials
+  WHERE Id IN (SELECT CredentialId FROM deleted)
+  
   -- delete users
   DELETE FROM Users
   WHERE Users.Id = (SELECT Id FROM deleted)  
