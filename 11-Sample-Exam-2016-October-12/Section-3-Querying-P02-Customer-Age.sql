@@ -1,0 +1,4 @@
+SELECT FirstName, DateOfBirth,
+  DATEDIFF(YEAR, DateOfBirth, '2016/10/01') AS Age
+FROM Customers
+WHERE DATEDIFF(YEAR, DateOfBirth, '2016/10/01') BETWEEN 40 AND 50
