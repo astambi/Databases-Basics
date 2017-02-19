@@ -8,7 +8,7 @@ BEGIN
     END
   IF(@ReviewGrade < 0 OR @ReviewGrade > 10)
     BEGIN
-	  RAISERROR('Invalid review grade.', 16, 1); RETURN;
+      RAISERROR('Invalid review grade.', 16, 1); RETURN;
     END
   -- CustomerID will always be valid and existent in the database	
   DECLARE @ReviewID int = ISNULL((SELECT MAX(ReviewID) FROM CustomerReviews), 0) + 1;

@@ -5,7 +5,7 @@ BEGIN
   --CustomerID , FlightID, Class and Seat will always be valid, and existent in the database
   IF(@TicketPrice < 0)
     BEGIN
-	  RAISERROR('Invalid ticket price', 16,1); RETURN;
+      RAISERROR('Invalid ticket price', 16,1); RETURN;
     END
   IF(@TicketPrice > ISNULL((SELECT Balance FROM CustomerBankAccounts WHERE CustomerID = @CustomerID), 0)) -- accBalance
     BEGIN

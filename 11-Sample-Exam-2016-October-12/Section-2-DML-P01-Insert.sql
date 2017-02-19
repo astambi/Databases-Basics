@@ -8,14 +8,14 @@ INSERT INTO Deposits (Amount, StartDate, EndDate, DepositTypeID, CustomerID)
 (
   SELECT 
     CASE
-	  WHEN DateofBirth >  '1980/01/01' AND Gender = 'M' THEN (1000 + 100)
-	  WHEN DateofBirth >  '1980/01/01' AND Gender = 'F' THEN (1000 + 200)
-	  WHEN DateofBirth <= '1980/01/01' AND Gender = 'M' THEN (1500 + 100)
-	  WHEN DateofBirth <= '1980/01/01' AND Gender = 'F' THEN (1500 + 200)
-	END, 
-	GETDATE(),
-	NULL,
-	IIF(CustomerID > 15, 3, IIF(CustomerID % 2 = 1, 1, 2)),
+      WHEN DateofBirth >  '1980/01/01' AND Gender = 'M' THEN (1000 + 100)
+      WHEN DateofBirth >  '1980/01/01' AND Gender = 'F' THEN (1000 + 200)
+      WHEN DateofBirth <= '1980/01/01' AND Gender = 'M' THEN (1500 + 100)
+      WHEN DateofBirth <= '1980/01/01' AND Gender = 'F' THEN (1500 + 200)
+    END, 
+    GETDATE(),
+    NULL,
+    IIF(CustomerID > 15, 3, IIF(CustomerID % 2 = 1, 1, 2)),
     CustomerID
     FROM Customers
     WHERE CustomerID < 20

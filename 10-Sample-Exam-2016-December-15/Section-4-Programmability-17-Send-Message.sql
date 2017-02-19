@@ -5,8 +5,8 @@ BEGIN
     RAISERROR('There is no chat with that user!', 16, 1);
   ELSE
     BEGIN
-	  INSERT INTO Messages (UserId, ChatId, Content, SentOn) 
-	  VALUES (@UserId, @ChatId, @Content, GETDATE())
+      INSERT INTO Messages (UserId, ChatId, Content, SentOn) 
+      VALUES (@UserId, @ChatId, @Content, GETDATE())
     END
 END
 
